@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from './lib/supabase';
 import { Phone, MessageCircle, Mail, X } from 'lucide-react';
+import BlurText from './BlurText';
+import { AnimatePresence, motion } from 'framer-motion';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -10,6 +12,7 @@ function App() {
 
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [benefitIndex, setBenefitIndex] = useState(0);
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -66,14 +69,14 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="relative pt-20 pb-8 lg:pt-28 lg:pb-12 overflow-hidden">
         {/* Background Gradients */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-30 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 blur-[120px] rounded-full mix-blend-multiply" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-medium mb-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-medium mb-4 animate-fade-in-up">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
@@ -81,14 +84,82 @@ function App() {
             Waitlist is open
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">
-            Unlock Data Value. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Democratize Trading.</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-4 max-w-4xl mx-auto leading-tight">
+            Stop repeating the same trading mistakes.
           </h1>
 
-          <p className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Stop losing money to emotional trading. The professional journal for traders who demand consistency and clarity.
+          <p className="text-lg text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
+            Track every trade. Fix what’s costing you money.
           </p>
+
+          {/* Benefits */}
+          {/* Rotating Benefits */}
+          <div className="h-16 flex items-center justify-center mb-10">
+            <div className="inline-flex items-center justify-center px-6 py-2 bg-white/40 backdrop-blur-md border border-white/50 rounded-full shadow-lg ring-1 ring-black/5">
+              <AnimatePresence mode='wait'>
+                {benefitIndex === 0 && (
+                  <motion.div
+                    key="benefit-0"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center"
+                  >
+                    <span className="mr-2 text-xl">📊</span>
+                    <BlurText
+                      text="Track every trade automatically"
+                      className="text-slate-800 font-medium text-sm sm:text-base whitespace-nowrap"
+                      delay={50}
+                      animateBy="words"
+                      direction="top"
+                      onAnimationComplete={() => setTimeout(() => setBenefitIndex(1), 3000)}
+                    />
+                  </motion.div>
+                )}
+                {benefitIndex === 1 && (
+                  <motion.div
+                    key="benefit-1"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center"
+                  >
+                    <span className="mr-2 text-xl">🧠</span>
+                    <BlurText
+                      text="Spot emotional mistakes"
+                      className="text-slate-800 font-medium text-sm sm:text-base whitespace-nowrap"
+                      delay={50}
+                      animateBy="words"
+                      direction="top"
+                      onAnimationComplete={() => setTimeout(() => setBenefitIndex(2), 3000)}
+                    />
+                  </motion.div>
+                )}
+                {benefitIndex === 2 && (
+                  <motion.div
+                    key="benefit-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center"
+                  >
+                    <span className="mr-2 text-xl">📈</span>
+                    <BlurText
+                      text="Improve consistency over time"
+                      className="text-slate-800 font-medium text-sm sm:text-base whitespace-nowrap"
+                      delay={50}
+                      animateBy="words"
+                      direction="top"
+                      onAnimationComplete={() => setTimeout(() => setBenefitIndex(0), 3000)}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
 
           {/* Form */}
           <div className="max-w-xl mx-auto mb-12">
@@ -118,7 +189,7 @@ function App() {
                   disabled={loading || submitted}
                   className="shrink-0 w-full sm:w-auto px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg sm:rounded-lg transition-all transform active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
                 >
-                  {loading ? 'Joining...' : submitted ? 'You are in!' : 'Join Waitlist'}
+                  {loading ? 'Joining...' : submitted ? 'You are in!' : 'Get early access (free)'}
                 </button>
               </div>
             </form>
@@ -128,12 +199,34 @@ function App() {
             <p className="mt-4 text-sm text-slate-500">
               Join <span className="font-semibold text-slate-900">{waitlistCount ? waitlistCount.toLocaleString() : '...'}</span> traders waiting for access.
             </p>
+
+            <div className="mt-8 flex flex-col items-center animate-bounce cursor-pointer opacity-70 hover:opacity-100 transition-opacity" onClick={() => document.getElementById('screenshots')?.scrollIntoView({ behavior: 'smooth' })}>
+              <span className="text-sm font-medium text-slate-400 mb-1">Peek inside</span>
+              <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Hero Screenshot */}
+          <div className="relative max-w-4xl mx-auto mt-8 sm:mt-12 animate-fade-in-up delay-200">
+            <div className="absolute inset-0 bg-indigo-500 blur-[100px] opacity-20 pointer-events-none rounded-full"></div>
+            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-200/50 bg-white" onClick={() => setSelectedImage('Screenshot_20251229-233306.png')}>
+              <img
+                src="Screenshot_20251229-233306.png"
+                alt="Dashboard Preview"
+                className="w-full h-auto cursor-pointer hover:scale-[1.01] transition-transform duration-500"
+              />
+            </div>
+            <p className="mt-4 text-sm text-slate-500 font-medium">
+              See exactly why your last trade failed.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Screenshots Section */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
+      <section id="screenshots" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Precision in every pixel.</h2>
