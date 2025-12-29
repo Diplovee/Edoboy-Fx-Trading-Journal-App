@@ -146,17 +146,17 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 z-10 pointers-events-none h-full w-full opacity-50 sm:hidden"></div>
             <div className="flex overflow-x-auto sm:grid sm:grid-cols-3 gap-6 px-4 pb-8 sm:pb-0 snap-x snap-mandatory">
               {/* Placeholder Cards for Screenshots */}
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group cursor-pointer" onClick={() => setSelectedImage('Screenshot_20251229-233306.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Dashboard</div>
-                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Dashboard" />
+                <img src="Screenshot_20251229-233306.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Dashboard" />
               </div>
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative mt-8 sm:mt-12 cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative mt-8 sm:mt-12 cursor-pointer" onClick={() => setSelectedImage('Screenshot_20251229-233318.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Analytics</div>
-                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Analytics" />
+                <img src="Screenshot_20251229-233318.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Analytics" />
               </div>
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative sm:mt-24 cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative sm:mt-24 cursor-pointer" onClick={() => setSelectedImage('Screenshot_20251229-233330.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Journal</div>
-                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Journal" />
+                <img src="Screenshot_20251229-233330.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Journal" />
               </div>
             </div>
           </div>
