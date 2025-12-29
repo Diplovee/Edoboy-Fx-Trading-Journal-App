@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from './lib/supabase';
-import { Phone, MessageCircle, Mail } from 'lucide-react';
+import { Phone, MessageCircle, Mail, X } from 'lucide-react';
 
 function App() {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchCount = async () => {
@@ -144,15 +146,15 @@ function App() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 z-10 pointers-events-none h-full w-full opacity-50 sm:hidden"></div>
             <div className="flex overflow-x-auto sm:grid sm:grid-cols-3 gap-6 px-4 pb-8 sm:pb-0 snap-x snap-mandatory">
               {/* Placeholder Cards for Screenshots */}
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group">
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Dashboard</div>
                 <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Dashboard" />
               </div>
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative mt-8 sm:mt-12">
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative mt-8 sm:mt-12 cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Analytics</div>
                 <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Analytics" />
               </div>
-              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative sm:mt-24">
+              <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative sm:mt-24 cursor-pointer" onClick={() => setSelectedImage('app-preview.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Journal</div>
                 <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Journal" />
               </div>
@@ -193,7 +195,29 @@ function App() {
           </div>
         </div>
       </footer>
-    </div>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
+          >
+            <X size={24} />
+          </button>
+          <img
+            src={selectedImage}
+            alt="Preview"
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )
+      }
+    </div >
   );
 }
 
