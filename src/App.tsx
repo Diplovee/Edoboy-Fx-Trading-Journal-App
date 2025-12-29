@@ -143,8 +143,8 @@ function App() {
           </div>
 
           <div className="relative -mx-4 sm:mx-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 z-10 pointers-events-none h-full w-full opacity-50 sm:hidden"></div>
-            <div className="flex overflow-x-auto sm:grid sm:grid-cols-3 gap-6 px-4 pb-8 sm:pb-0 snap-x snap-mandatory">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 z-10 pointer-events-none h-full w-full opacity-50 sm:hidden"></div>
+            <div className="flex overflow-x-auto sm:grid sm:grid-cols-3 gap-6 px-4 pb-8 sm:pb-0 snap-x snap-mandatory scrollbar-hide">
               {/* Placeholder Cards for Screenshots */}
               <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group cursor-pointer" onClick={() => setSelectedImage('Screenshot_20251229-233306.png')}>
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Dashboard</div>
