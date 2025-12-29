@@ -54,7 +54,7 @@ function App() {
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/icon.png" alt="EdoBoyFx" className="w-8 h-8 rounded-lg" />
+            <img src="icon.png" alt="EdoBoyFx" className="w-8 h-8 rounded-lg" />
             <span className="font-bold text-lg tracking-tight text-slate-900">EdoBoyFx</span>
           </div>
           <div className="text-sm font-medium text-slate-500">
@@ -146,15 +146,15 @@ function App() {
               {/* Placeholder Cards for Screenshots */}
               <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative group">
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Dashboard</div>
-                <img src="/app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Dashboard" />
+                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Dashboard" />
               </div>
               <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative mt-8 sm:mt-12">
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Analytics</div>
-                <img src="/app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Analytics" />
+                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Analytics" />
               </div>
               <div className="snap-center shrink-0 w-[80vw] sm:w-auto aspect-[9/16] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden relative sm:mt-24">
                 <div className="absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-300 font-medium">Journal</div>
-                <img src="/app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Journal" />
+                <img src="app-preview.png" className="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-500 hover:scale-105" alt="Journal" />
               </div>
             </div>
           </div>
